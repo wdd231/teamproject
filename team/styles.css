@@ -68,6 +68,12 @@ a {
     padding: 8px 24px;
 }
 
+.navbar_logo img {
+    width: 40px;
+    height: auto;
+}
+
+
 .navbar_toggleBtn {
     display: none;
     position: absolute;
