@@ -1,3 +1,4 @@
+/* main */
 body {
     display: flex;
     flex-direction: column;
@@ -8,50 +9,45 @@ body {
     background-color: #FFEEE4;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     color: #4A4A4A;
 }
 
-.navbar a, .footer p, .footer_icons li {
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    color: white;
-}
-
-#recipeForm input,
-#recipeForm textarea,
-#recipeForm select,
-#recipeForm button {
-    font-family: 'Source Sans 3', sans-serif;
-}
-
-button {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-}
-
-main {
-    flex: 1;
-}
-
-.container {
-    padding: 16px;
-}
-
-a {
-    text-decoration: none;
-    color: #4A4A4A;
-}
-
+/* navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #F17F42;
-    padding: 8px 12px;
+    padding: 16px 20px;
+    height: 70px;
+    box-sizing: border-box;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* nav menu */
+.navbar a,
+.footer p,
+.footer_icons li {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: white;
 }
 
 .navbar_logo {
@@ -62,8 +58,9 @@ a {
     gap: 8px;
 }
 
-.navbar_logo i {
-    color: #FFD8B1;
+.navbar_logo img {
+    width: 40px;
+    height: auto;
 }
 
 .navbar_menu {
@@ -83,6 +80,7 @@ a {
     color: #F17F42;
 }
 
+/* nav icon */
 .navbar_icons {
     list-style: none;
     color: white;
@@ -94,12 +92,6 @@ a {
     padding: 8px 24px;
 }
 
-.navbar_logo img {
-    width: 40px;
-    height: auto;
-}
-
-
 .navbar_toggleBtn {
     display: none;
     position: absolute;
@@ -108,19 +100,21 @@ a {
     color: #FFD8B1;
 }
 
+/* Hero Section (Home) */
 .hero {
     background-color: #FAD4C0;
-    height: 100vh;
+    height: calc(100vh - 70px);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #4A4A4A;
     text-align: center;
     position: relative;
+    margin-top: 70px;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
@@ -139,12 +133,77 @@ a {
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin: 5px;
 }
 
 .hero-button:hover {
     background-color: #D9682B;
 }
 
+/* Add Recipe Form */
+.recipe-form-container {
+    background-color: #FFF8F2;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    margin: 100px auto 40px;
+    box-sizing: border-box;
+}
+
+.recipe-form-container h2 {
+    text-align: center;
+    color: #4A4A4A;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+#recipeForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#recipeForm input,
+#recipeForm textarea,
+#recipeForm select {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #D9682B;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#recipeForm textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+#recipeForm input[type="file"] {
+    border: none;
+    padding: 6px;
+}
+
+#recipeForm button {
+    padding: 12px;
+    background-color: #F17F42;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#recipeForm button:hover {
+    background-color: #D9682B;
+}
+
+/* search bar */
 .search-bar {
     display: flex;
     justify-content: center;
@@ -175,6 +234,7 @@ a {
     background-color: #D9682B;
 }
 
+/* Footer */
 .footer {
     display: flex;
     justify-content: space-between;
@@ -215,131 +275,18 @@ a {
     color: #FFD8B1;
 }
 
-/* Add a New Recipe Form */
-.recipe-form-container {
-    background-color: #FFF8F2;
-    padding: 24px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 100%;
-    margin: 40px auto;
-    box-sizing: border-box; /* 패딩 포함 */
-}
 
-.recipe-form-container h2 {
-    text-align: center;
-    color: #4A4A4A;
-    font-size: 24px;
-    margin-bottom: 16px;
-}
-
-#recipeForm {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    box-sizing: border-box; /* 패딩 포함 */
-}
-
-#recipeForm input,
-#recipeForm textarea,
-#recipeForm select {
-    width: 100%;
-    padding: 12px;
-    font-size: 14px;
-    border: 1px solid #D9682B;
-    border-radius: 4px;
-    box-sizing: border-box; /* 패딩 포함 */
-}
-
-#recipeForm textarea {
-    resize: vertical;
-    height: 100px;
-}
-
-#recipeForm input[type="file"] {
-    border: none;
-    padding: 6px; /* 파일 선택 버튼 크기 조정 */
-}
-
-#recipeForm button {
-    padding: 12px;
-    background-color: #F17F42;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#recipeForm button:hover {
-    background-color: #D9682B;
-}
-
-/* Responsive Design */
 @media screen and (max-width: 768px) {
+    .navbar {
+        height: 60px;
+        padding: 12px 16px;
+    }
+
+    .hero {
+        height: calc(100vh - 60px);
+    }
+
     .recipe-form-container {
         padding: 16px;
-    }
-}
-
-
-.dropdown {
-    position: relative;
-}
-
-.dropdown_menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    min-width: 150px;
-    z-index: 1000;
-}
-
-.dropdown_menu li {
-    padding: 10px;
-}
-
-.dropdown_menu li a {
-    display: block;
-    color: #4A4A4A;
-    padding: 10px;
-    text-decoration: none;
-}
-
-.dropdown_menu li:hover {
-    background-color: #FFD8B1;
-}
-
-/* Drop-down menu */
-.dropdown:hover .dropdown_menu {
-    display: block;
-}
-
-/* 모바일에서 드롭다운 메뉴 스타일 */
-@media screen and (max-width: 768px) {
-    .dropdown_menu {
-        position: static;
-        display: none;
-        width: 100%;
-        box-shadow: none;
-        background-color: #F17F42;
-    }
-
-    .dropdown_menu li a {
-        color: white;
-    }
-
-    .dropdown_menu.active {
-        display: block;
     }
 }
