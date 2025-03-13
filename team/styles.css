@@ -312,3 +312,14 @@ a {
         padding: 16px;
     }
 }
+
+.recipe-card {
+    border: 1px solid #ffffff;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #fafafae8;
+    border-radius: 8px;
+}
+h2 {
+    color: #333;
+}

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipes List</title>
+    <title>Lunch Recipes</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+
     <nav class="navbar">
         <div class="navbar_logo">
             <img src="images/recipe-book.png" alt="logo">
@@ -16,21 +15,29 @@
         </div>
         <ul class="navbar_menu">
             <li><a href="index.html">Home</a></li>
-            <li><a href="recipes.html">Recipes</a></li>
+            <li class="dropdown">
+                <a href="#">Find Recipes</a>
+                <ul class="dropdown_menu">
+                    <li><a href="breakfast.html">Breakfast</a></li>
+                    <li><a href="lunch.html">Lunch</a></li>
+                    <li><a href="dinner.html">Dinner</a></li>
+                </ul>
+            </li>
             <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
+
     <div class="container">
         <h1>Saved Recipes</h1>
-        <div id="recipeList"></div>
     </div>
+    <div id="recipeList"></div>
 
     <footer class="footer">
         <p>© 2025 Recipe Finder. All Rights Reserved.</p>
     </footer>
 
-    <script type="module" src="js/recipes.js"></script>
+    <script type="module" src="recipes.js"></script>
 </body>
 
 </html>
