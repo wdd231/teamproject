@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Detail</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <img src="images/recipe-book.png" alt="logo">
+            <a href="index.html">Recipe Finder</a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#">Recipes</a>
+                <ul class="dropdown_menu">
+                    <li><a href="breakfast.html">Breakfast</a></li>
+                    <li><a href="lunch.html">Lunch</a></li>
+                    <li><a href="dinner.html">Dinner</a></li>
+                </ul>
+            </li>
+            <li><a href="personal-recipes.html">My Recipes</a></li>
+            <li><a href="add-recipe.html">Add Recipe</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container" style="padding: 20px;">
+        <h1 id="recipeName">Loading recipe...</h1>
+        <img id="recipeImage" src="" alt="" style="max-width: 300px; display: block; margin-bottom: 20px;">
+        <p><strong>Cooking Time:</strong> <span id="recipeTime"></span> minutes</p>
+
+        <h2>Ingredients</h2>
+        <ul id="recipeIngredients"></ul>
+
+        <h2>Instructions</h2>
+        <p id="recipeInstructions"></p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Recipe Finder. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Script to load recipe from URL parameter -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get("id");
+
+            if (!id) {
+                document.getElementById("recipeName").textContent = "Recipe not found.";
+                return;
+            }
+
+            const recipes = JSON.parse(localStorage.getItem("recipes")) || [];
+            const recipe = recipes.find(r => r.id == id);
+
+            if (!recipe) {
+                document.getElementById("recipeName").textContent = "Recipe not found.";
+                return;
+            }
+
+            // Populate recipe details
+            document.getElementById("recipeName").textContent = recipe.name;
+            document.getElementById("recipeTime").textContent = recipe.cookingTime;
+            document.getElementById("recipeInstructions").textContent = recipe.instructions;
+
+            const ingredientsList = document.getElementById("recipeIngredients");
+            recipe.ingredients.forEach(ingredient => {
+                const li = document.createElement("li");
+                li.textContent = ingredient.trim();
+                ingredientsList.appendChild(li);
+            });
+
+            if (recipe.image) {
+                document.getElementById("recipeImage").src = recipe.image;
+                document.getElementById("recipeImage").alt = recipe.name;
+            } else {
+                document.getElementById("recipeImage").style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Recipe Finder</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 45px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .recipe-card {
+            background-color: #FDF0E6;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe-card ul {
+            padding-left: 20px;
+        }
+
+        .recipe-card i {
+            margin-right: 8px;
+            color: #F17F42;
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        footer.footer {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <img src="images/recipe-book.png" alt="logo">
+            <a href="index.html">Recipe Finder</a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#">Recipes</a>
+                <ul class="dropdown_menu">
+                    <li><a href="breakfast.html">Breakfast</a></li>
+                    <li><a href="lunch.html">Lunch</a></li>
+                    <li><a href="dinner.html">Dinner</a></li>
+                </ul>
+            </li>
+            <li><a href="personal-recipes.html">My Recipes</a></li>
+            <li><a href="add-recipe.html">Add Recipe</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main About Content -->
+    <main class="container" style="margin-top: 120px;">
+        <section class="about-section">
+            <h1>About Recipe Finder</h1>
+            <p>Welcome to Recipe Finder, your ultimate destination for discovering, saving, and organizing delicious
+                recipes. From quick snacks to meals, explore a vast collection tailored for food enthusiasts!</p>
+
+            <div class="mission-card recipe-card">
+                <h2>Our Mission</h2>
+                <p>At Recipe Finder, our mission is to inspire creativity in the kitchen and make cooking easy,
+                    enjoyable, and accessible to everyone.</p>
+            </div>
+
+            <div class="features-card recipe-card">
+                <h2>Why Choose Us?</h2>
+                <ul>
+                    <li><i class="fas fa-search"></i>Easy and Fast Recipe Search</li>
+                    <li><i class="fas fa-heart"></i>Save and Organize Your Favorite Recipes</li>
+                    <li><i class="fas fa-mobile-alt"></i>Fully Responsive for All Devices</li>
+                    <li><i class="fas fa-users"></i>Join Our Growing Community</li>
+                </ul>
+            </div>
+
+            <div class="contact-card recipe-card">
+                <h2>Contact Us</h2>
+                <p>Have suggestions or questions? Feel free to reach out—we'd love to hear from you!</p>
+                <ul>
+                    <li><i class="fas fa-envelope"></i>Email: <a
+                            href="mailto:contact@recipefinder.com">contact@recipefinder.com</a></li>
+                    <li><i class="fab fa-github"></i>GitHub: <a href="https://github.com/wdd231/teamproject"
+                            target="_blank">Visit Our Repo</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Recipe Finder. All Rights Reserved.</p>
+        <ul class="footer_icons">
+            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+        </ul>
+    </footer>
+
+</body>
+
+</html>

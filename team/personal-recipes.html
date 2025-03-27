@@ -2,21 +2,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Add a new recipe to the collection">
-    <meta name="author" content="Samantha Mayes, Haein Lee, Danny Kim">
-    <title>Add a New Recipe</title>
-
-    <link rel="stylesheet" href="styles.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Personal Recipes</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar_logo">
             <img src="images/recipe-book.png" alt="logo">
@@ -37,23 +31,23 @@
             <li><a href="about.html">About</a></li>
         </ul>
     </nav>
+    <!-- Content -->
+    <div class="container" style="margin-top: 100px; padding: 20px;">
+        <h1>My Personal Recipes</h1>
 
-    <!-- Recipe Form -->
-    <div class="container recipe-form-container">
-        <h2>Add a New Recipe</h2>
-        <form id="recipeForm">
-            <input type="text" id="recipeName" placeholder="Recipe Name" required>
-            <textarea id="recipeIngredients" placeholder="Ingredients (comma separated)" required></textarea>
-            <textarea id="recipeInstructions" placeholder="Instructions" required></textarea>
-            <input type="number" id="cookingTime" placeholder="Cooking Time (minutes)" required>
-            <select id="mealType">
+        <!-- 🔍 Search & Filter -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search by name...">
+            <select id="mealTypeFilter">
+                <option value="all">All</option>
                 <option value="breakfast">Breakfast</option>
                 <option value="lunch">Lunch</option>
                 <option value="dinner">Dinner</option>
             </select>
-            <input type="file" id="recipeImage">
-            <button type="submit">Add Recipe</button>
-        </form>
+            <button onclick="applyFilter()">Search</button>
+        </div>
+
+        <div id="personalRecipeList"></div>
     </div>
 
     <!-- Footer -->
@@ -66,8 +60,8 @@
         </ul>
     </footer>
 
-    <script type="module" src="add-recipe.js"></script>
-
+    <!-- JS -->
+    <script type="module" src="personal-recipes.js"></script>
 </body>
 
 </html>

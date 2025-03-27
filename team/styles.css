@@ -9,14 +9,19 @@ body {
     background-color: #FFEEE4;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     color: #4A4A4A;
 }
 
 a {
-    text-decoration: none; 
+    text-decoration: none;
     color: inherit;
 }
 
@@ -126,14 +131,14 @@ a {
 /* Hero Section (home) */
 .hero {
     background-color: #FAD4C0;
-    height: calc(100vh - 70px); 
+    height: calc(100vh - 70px);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #4A4A4A;
     text-align: center;
     position: relative;
-    margin-top: 70px;
+    margin-top: 1px;
 }
 
 .hero h1 {
@@ -171,7 +176,7 @@ a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     width: 100%;
-    margin: 100px auto 40px; 
+    margin: 100px auto 40px;
     box-sizing: border-box;
 }
 
@@ -311,4 +316,84 @@ a {
     .recipe-form-container {
         padding: 16px;
     }
+}
+
+.recipe-card {
+    border: 1px solid #ffffff;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #fafafae8;
+    border-radius: 8px;
+}
+
+h2 {
+    color: #333;
+}
+
+
+.api-recipe-card {
+    background-color: #FFF8F2;
+    border: 1px solid #FFD8B1;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 20px 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.api-recipe-card img {
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.api-recipe-content {
+    flex: 1;
+}
+
+.api-recipe-content h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #D9682B;
+}
+
+.api-recipe-content p {
+    margin: 6px 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.api-recipe-card a {
+    display: inline-block;
+    margin-top: 8px;
+    color: #F17F42;
+    font-weight: bold;
+}
+
+.instructions-preview {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.instructions-preview.hidden {
+    display: none;
+}
+
+.recipe-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s ease;
+    padding: 0;
+    opacity: 0;
+}
+
+.recipe-details.expanded {
+    max-height: 500px;
+    padding: 10px 0;
+    opacity: 1;
 }
