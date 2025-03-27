@@ -1,31 +1,38 @@
+/* main */
 body {
     display: flex;
     flex-direction: column;
     margin: 0;
-    font-family: 'Source Code Pro';
+    font-family: 'Roboto', 'Source Sans 3', sans-serif;
+    font-size: 16px;
     min-height: 100vh;
     background-color: #FFEEE4;
 }
 
-main {
-    flex: 1;
-}
-
-.container {
-    padding: 16px;
-}
-
-a {
-    text-decoration: none;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
     color: #4A4A4A;
 }
 
+a {
+    text-decoration: none; 
+    color: inherit;
+}
+
+/* nav bar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #F17F42;
-    padding: 8px 12px;
+    padding: 16px 20px;
+    height: 70px;
+    box-sizing: border-box;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar_logo {
@@ -36,8 +43,9 @@ a {
     gap: 8px;
 }
 
-.navbar_logo i {
-    color: #FFD8B1;
+.navbar_logo img {
+    width: 40px;
+    height: auto;
 }
 
 .navbar_menu {
@@ -47,54 +55,89 @@ a {
 }
 
 .navbar_menu li {
+    position: relative;
     padding: 8px 12px;
     color: white;
 }
 
-.navbar_menu li:hover {
-    background-color: #FFD8B1;
-    border-radius: 4px;
-    color: #F17F42;
-}
-
-.navbar_icons {
-    list-style: none;
+.navbar_menu li a {
+    text-decoration: none;
     color: white;
-    display: flex;
-    padding-left: 0;
 }
 
-.navbar_icons li {
-    padding: 8px 24px;
-}
-
-.navbar_logo img {
-    width: 40px;
-    height: auto;
-}
-
-
-.navbar_toggleBtn {
+/* dropdown menu */
+.dropdown_menu {
     display: none;
     position: absolute;
-    right: 32px;
-    font-size: 24px;
-    color: #FFD8B1;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    z-index: 1000;
 }
 
+.dropdown_menu li {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown_menu li a {
+    display: block;
+    color: #4A4A4A;
+    padding: 10px;
+}
+
+.dropdown_menu li:hover {
+    background-color: #FFD8B1;
+}
+
+.dropdown:hover .dropdown_menu {
+    display: block;
+}
+
+/* dropdown menu */
+@media screen and (max-width: 768px) {
+    .navbar_menu {
+        flex-direction: column;
+    }
+
+    .dropdown_menu {
+        position: static;
+        display: none;
+        width: 100%;
+        box-shadow: none;
+        background-color: #F17F42;
+    }
+
+    .dropdown_menu li a {
+        color: white;
+    }
+
+    .dropdown_menu.active {
+        display: block;
+    }
+}
+
+/* Hero Section (home) */
 .hero {
     background-color: #FAD4C0;
-    height: 100vh;
+    height: calc(100vh - 70px); 
     display: flex;
     align-items: center;
     justify-content: center;
     color: #4A4A4A;
     text-align: center;
     position: relative;
+    margin-top: 1px;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
@@ -113,12 +156,77 @@ a {
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin: 5px;
 }
 
 .hero-button:hover {
     background-color: #D9682B;
 }
 
+/* Add Recipe Form  */
+.recipe-form-container {
+    background-color: #FFF8F2;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    margin: 100px auto 40px; 
+    box-sizing: border-box;
+}
+
+.recipe-form-container h2 {
+    text-align: center;
+    color: #4A4A4A;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+#recipeForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#recipeForm input,
+#recipeForm textarea,
+#recipeForm select {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #D9682B;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#recipeForm textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+#recipeForm input[type="file"] {
+    border: none;
+    padding: 6px;
+}
+
+#recipeForm button {
+    padding: 12px;
+    background-color: #F17F42;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#recipeForm button:hover {
+    background-color: #D9682B;
+}
+
+/* searchbar */
 .search-bar {
     display: flex;
     justify-content: center;
@@ -149,6 +257,7 @@ a {
     background-color: #D9682B;
 }
 
+/* footer */
 .footer {
     display: flex;
     justify-content: space-between;
@@ -189,60 +298,28 @@ a {
     color: #FFD8B1;
 }
 
-.dropdown {
-    position: relative;
-}
-
-.dropdown_menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    min-width: 150px;
-    z-index: 1000;
-}
-
-.dropdown_menu li {
-    padding: 10px;
-}
-
-.dropdown_menu li a {
-    display: block;
-    color: #4A4A4A;
-    padding: 10px;
-    text-decoration: none;
-}
-
-.dropdown_menu li:hover {
-    background-color: #FFD8B1;
-}
-
-/* 마우스를 올렸을 때 Drop-down 메뉴 표시 */
-.dropdown:hover .dropdown_menu {
-    display: block;
-}
-
-/* 모바일에서 드롭다운 메뉴 스타일 */
 @media screen and (max-width: 768px) {
-    .dropdown_menu {
-        position: static;
-        display: none;
-        width: 100%;
-        box-shadow: none;
-        background-color: #F17F42;
+    .navbar {
+        height: 60px;
+        padding: 12px 16px;
     }
 
-    .dropdown_menu li a {
-        color: white;
+    .hero {
+        height: calc(100vh - 60px);
     }
 
-    .dropdown_menu.active {
-        display: block;
+    .recipe-form-container {
+        padding: 16px;
     }
+}
+
+.recipe-card {
+    border: 1px solid #ffffff;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #fafafae8;
+    border-radius: 8px;
+}
+h2 {
+    color: #333;
 }
