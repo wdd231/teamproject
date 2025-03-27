@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Add a new recipe to the collection">
+    <meta name="author" content="Samantha Mayes, Haein Lee, Danny Kim">
+    <title>Add a New Recipe</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <img src="images/recipe-book.png" alt="logo">
+            <a href="index.html">Recipe Finder</a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="recipes.html">Find Recipes</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <button class="navbar_toggleBtn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Recipe Form -->
+    <div class="container recipe-form-container">
+        <h2>Add a New Recipe</h2>
+        <form id="recipeForm">
+            <input type="text" id="recipeName" placeholder="Recipe Name" required>
+            <textarea id="recipeIngredients" placeholder="Ingredients (comma separated)" required></textarea>
+            <textarea id="recipeInstructions" placeholder="Instructions" required></textarea>
+            <input type="number" id="cookingTime" placeholder="Cooking Time (minutes)" required>
+            <select id="mealType">
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+            </select>
+            <input type="file" id="recipeImage">
+            <button type="submit">Add Recipe</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2024 Recipe Finder. All Rights Reserved.</p>
+        <ul class="footer_icons">
+            <li><i class="fa-brands fa-facebook"></i></li>
+            <li><i class="fa-brands fa-instagram"></i></li>
+            <li><i class="fa-brands fa-twitter"></i></li>
+        </ul>
+    </footer>
+
+    <script type="module" src="js/add-recipe.js"></script>
+
+</body>
+
+</html>
