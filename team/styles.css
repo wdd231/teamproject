@@ -1,4 +1,6 @@
 /* main */
+
+
 body {
     display: flex;
     flex-direction: column;
@@ -396,4 +398,10 @@ h2 {
     max-height: 500px;
     padding: 10px 0;
     opacity: 1;
+}
+
+.container {
+    padding-top: 100px;
+    max-width: 1000px;
+    margin: 0 auto;
 }

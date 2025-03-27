@@ -1,3 +1,5 @@
+// dinner.js
+
 // Load dinner recipes from localStorage
 function loadLocalRecipes() {
     let localRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
@@ -61,19 +63,21 @@ function displayDinnerRecipes(recipes) {
 }
 
 // Fetch + combine local and API dinner recipes
-fetch('https://dummyjson.com/recipes')
-    .then(response => response.json())
-    .then(data => {
-        const apiRecipes = data.recipes.filter(recipe =>
-            Array.isArray(recipe.mealType)
-                ? recipe.mealType.map(m => m.toLowerCase()).includes("dinner")
-                : recipe.mealType?.toLowerCase() === "dinner"
-        );
+document.addEventListener("DOMContentLoaded", function () {
+    fetch('https://dummyjson.com/recipes')
+        .then(response => response.json())
+        .then(data => {
+            const apiRecipes = data.recipes.filter(recipe =>
+                Array.isArray(recipe.mealType)
+                    ? recipe.mealType.map(m => m.toLowerCase()).includes("dinner")
+                    : recipe.mealType?.toLowerCase() === "dinner"
+            );
 
-        const localRecipes = loadLocalRecipes();
-        displayDinnerRecipes([...apiRecipes, ...localRecipes]);
-    })
-    .catch(error => {
-        console.error("Error fetching dinner recipes:", error);
-        document.getElementById("dinnerRecipes").innerHTML = "<p>Error loading dinner recipes.</p>";
-    });
+            const localRecipes = loadLocalRecipes();
+            displayDinnerRecipes([...apiRecipes, ...localRecipes]);
+        })
+        .catch(error => {
+            console.error("Error fetching dinner recipes:", error);
+            document.getElementById("dinnerRecipes").innerHTML = "<p>Error loading dinner recipes.</p>";
+        });
+});

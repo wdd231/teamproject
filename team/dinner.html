@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dinner Recipes</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
     <nav class="navbar">
@@ -29,32 +31,18 @@
         </ul>
     </nav>
 
-    <h1>Dinner Recipes</h1>
+    
     <div class="container">
+        <h1>Dinner Recipes</h1>
         <div id="dinnerRecipes"></div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const recipes = JSON.parse(localStorage.getItem("recipes")) || [];
-            const dinnerContainer = document.getElementById("dinnerRecipes");
+    <footer class="footer">
+        <p>© 2025 Recipe Finder. All Rights Reserved.</p>
+    </footer>
 
-            const dinnerRecipes = recipes.filter(recipe => recipe.mealType === "dinner");
 
-            if (dinnerRecipes.length === 0) {
-                dinnerContainer.innerHTML = "<p>No dinner recipes found.</p>";
-            } else {
-                dinnerRecipes.forEach(recipe => {
-                    let recipeCard = document.createElement("div");
-                    recipeCard.innerHTML = `
-                        <h2><a href="recipe.html?id=${recipe.id}">${recipe.name}</a></h2>
-                        <p>Cooking Time: ${recipe.cookingTime} min</p>
-                    `;
-                    dinnerContainer.appendChild(recipeCard);
-                });
-            }
-        });
-    </script>
-<script type="module" src="dinner.js"></script>
+    <script type="module" src="dinner.js"></script>
 </body>
+
 </html>
