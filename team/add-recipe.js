@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const instructions = document.getElementById("recipeInstructions").value.trim();
         const cookingTime = document.getElementById("cookingTime").value.trim();
         const mealType = document.getElementById("mealType").value;
-        const recipeImage = document.getElementById("recipeImage").files[0]; // File input
+        const recipeImage = document.getElementById("recipeImage").files[0];
 
-        // Check if required fields are filled
+        // Validate required fields
         if (!recipeName || ingredients.length === 0 || !instructions || !cookingTime) {
             alert("Please fill in all fields.");
             return;
@@ -21,25 +21,25 @@ document.addEventListener("DOMContentLoaded", function () {
         // Generate a unique recipe ID
         const recipeId = Date.now();
 
-        // Convert image to Base64 (optional)
+        // Handle image upload and conversion to Base64
         let imageUrl = "";
         if (recipeImage) {
             const reader = new FileReader();
             reader.readAsDataURL(recipeImage);
             reader.onload = function (event) {
                 imageUrl = event.target.result;
-                saveRecipe(recipeId, recipeName, ingredients, instructions, cookingTime, mealType, imageUrl);
+                saveRecipeAndRedirect(recipeId, recipeName, ingredients, instructions, cookingTime, mealType, imageUrl);
             };
         } else {
-            saveRecipe(recipeId, recipeName, ingredients, instructions, cookingTime, mealType, imageUrl);
+            saveRecipeAndRedirect(recipeId, recipeName, ingredients, instructions, cookingTime, mealType, imageUrl);
         }
     });
 
-    function saveRecipe(id, name, ingredients, instructions, time, mealType, image) {
+    function saveRecipeAndRedirect(id, name, ingredients, instructions, time, mealType, image) {
         // Retrieve existing recipes from localStorage
         let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
 
-        // Create new recipe object
+        // Create a new recipe object
         const newRecipe = {
             id: id,
             name: name,
@@ -50,21 +50,23 @@ document.addEventListener("DOMContentLoaded", function () {
             image: image
         };
 
-        // Add new recipe to the list
+        // Add the new recipe to the list and save it
         recipes.push(newRecipe);
-
-        // Save updated list back to localStorage
         localStorage.setItem("recipes", JSON.stringify(recipes));
 
         alert("Recipe added successfully!");
 
-        // Redirect user to the appropriate meal page
+        // Determine target page based on meal type
+        let targetPage = "";
         if (mealType === "breakfast") {
-            window.location.href = "breakfast.html";
+            targetPage = "breakfast.html";
         } else if (mealType === "lunch") {
-            window.location.href = "lunch.html";
+            targetPage = "lunch.html";
         } else if (mealType === "dinner") {
-            window.location.href = "dinner.html";
+            targetPage = "dinner.html";
         }
+
+        // Redirect with recipeId as URL parameter
+        window.location.href = `${targetPage}?recipeId=${id}`;
     }
 });
