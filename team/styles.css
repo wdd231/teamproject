@@ -371,7 +371,7 @@ h2 {
 .api-recipe-card a {
     display: inline-block;
     margin-top: 8px;
-    color: #F17F42;
+    
     font-weight: bold;
 }
 
@@ -404,4 +404,23 @@ h2 {
     padding-top: 100px;
     max-width: 1000px;
     margin: 0 auto;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff7043;
+    /* 예쁜 주황색 배경 */
+    color: white;
+    /* 글자 색을 흰색으로 */
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #ff5722;
 }

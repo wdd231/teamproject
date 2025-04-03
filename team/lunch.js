@@ -33,18 +33,20 @@ function displayLunchRecipes(recipes) {
     const previewText = instructions.length > 100 ? instructions.slice(0, 100) + "..." : instructions;
 
     card.innerHTML = `
-          <img src="${image}" alt="${recipe.name}">
-          <div class="api-recipe-content">
-              <h2>${recipe.name}</h2>
-              <p><strong>Time:</strong> ${recipe.cookingTime || recipe.time || "?"} minutes</p>
-              <p class="instructions-preview" id="preview-${index}">${previewText}</p>
-              <div class="recipe-details" id="details-${index}">
-                  <p><strong>Ingredients:</strong> ${ingredients}</p>
-                  <p><strong>Instructions:</strong> ${instructions}</p>
-              </div>
-              <button class="hero-button toggle-button" data-index="${index}">View Recipe</button>
+      <img src="${image}" alt="${recipe.name}">
+      <div class="api-recipe-content">
+          <h2>${recipe.name}</h2>
+          <p><strong>Time:</strong> ${recipe.cookingTime || recipe.time || "?"} minutes</p>
+          <p class="instructions-preview" id="preview-${index}">${previewText}</p>
+         <div class="recipe-details" id="details-${index}">
+              <p><strong>Ingredients:</strong> ${ingredients}</p>
+              <p><strong>Instructions:</strong> ${instructions}</p>
           </div>
-      `;
+          <button class="hero-button toggle-button" data-index="${index}">View Recipe</button>
+          <a class="hero-button" href="recipe-detail.html?recipeId=${recipe.id}">Go to Detail</a>
+      </div>
+  `;
+
 
     lunchContainer.appendChild(card);
   });
